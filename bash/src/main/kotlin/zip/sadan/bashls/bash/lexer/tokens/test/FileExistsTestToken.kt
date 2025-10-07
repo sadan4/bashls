@@ -1,0 +1,11 @@
+package zip.sadan.bashls.bash.lexer.tokens.test
+
+import zip.sadan.bashls.bash.lexer.Range
+
+/**
+ * ```bash
+ * [ -e /file ]
+ * ```
+ */
+class FileExistsTestToken(override val pos: Range) : TestToken {
+}

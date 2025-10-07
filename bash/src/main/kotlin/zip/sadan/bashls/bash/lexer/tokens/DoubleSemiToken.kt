@@ -1,0 +1,6 @@
+package zip.sadan.bashls.bash.lexer.tokens
+
+import zip.sadan.bashls.bash.lexer.Range
+
+/** ;; */
+class DoubleSemiToken(override val pos: Range) : Token
