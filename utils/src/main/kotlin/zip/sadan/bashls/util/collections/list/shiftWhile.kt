@@ -16,3 +16,18 @@ inline fun <T> MutableList<T>.shiftWhile(predicate: (T) -> Boolean): List<T> {
         clear()
     }
 }
+
+inline fun StringBuilder.shiftWhile(predicate: (Char) -> Boolean): String {
+    if (isEmpty()) {
+        throw ArrayIndexOutOfBoundsException()
+    }
+
+    for (index in 0 until length) {
+        if (!predicate(this[index])) {
+            return shift(index)
+        }
+    }
+    return toString().also {
+        clear()
+    }
+}

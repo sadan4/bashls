@@ -2,6 +2,7 @@ package zip.sadan.bashls.bash.lexer
 
 import zip.sadan.bashls.bash.lexer.tokens.*
 import zip.sadan.bashls.bash.lexer.tokens.redir.*
+import zip.sadan.bashls.util.collections.list.shift;
 
 private fun isStartOfWord(c: Char): Boolean = c.isLetterOrDigit()
 private fun isWhitespace(c: Char): Boolean = c.isWhitespace() && c !in CharCategory.LINE_SEPARATOR
@@ -126,6 +127,7 @@ class Lexer(private val source: String) {
                     }
 
                     '<' -> {
+                        take()
                         when (val c = take()) {
                             '=' -> {
                                 ShlAssignToken(r(3)).l
@@ -194,8 +196,7 @@ class Lexer(private val source: String) {
     //5 foo is $foo
     //6 foo is $foo
     //7 foo is bar
-    private fun startHeredoc(startingChar: Char): List<Token> {
-        return listOf()
+    private fun startHeredoc(): List<Token> = buildList {
     }
 
     /**
@@ -240,9 +241,7 @@ class Lexer(private val source: String) {
     private fun peekAt(idx: Int) = b[idx]
     private fun peek(len: Int) = b.substring(0, len)
 
-    private fun take() = b
-        .take(1)
-        .first()
+    private fun take() = b.removeFirst
 
     private fun take(n: Int) = b
         .take(n)
