@@ -3,4 +3,6 @@ package zip.sadan.bashls.bash.lexer.tokens
 import zip.sadan.bashls.bash.lexer.Range
 
 /** ;& */
-class SemiBackgroundToken(override val pos: Range) : Token
+class SemiBackgroundToken(override val pos: Range) : Token() {
+    override val contents: String = ";&"
+}

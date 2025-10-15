@@ -11,4 +11,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * # /root
  * ```
  */
-class TildeToken(override val pos: Range) : Token
+class TildeToken(override val pos: Range) : Token() {
+    override val contents: String = "~"
+}

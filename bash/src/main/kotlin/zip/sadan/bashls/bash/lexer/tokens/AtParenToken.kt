@@ -7,7 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  *
  * Example: @(pattern1|pattern2)
  */
-class AtParenToken(override val pos: Range) : Token {
+class AtParenToken(override val pos: Range) : Token() {
     override val contents: String = "@("
 }
 

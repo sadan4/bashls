@@ -19,5 +19,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * # b_nana
  * ```
  */
-class SlashToken(override val pos: Range) : Token {
+class SlashToken(override val pos: Range) : Token() {
+    override val contents: String = "/"
 }

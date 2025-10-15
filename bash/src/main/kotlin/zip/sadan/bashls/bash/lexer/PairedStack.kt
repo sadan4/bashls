@@ -15,16 +15,15 @@ class PairedStack : Collection<C> {
     fun push(token: Token) {
         if (stack.isEmpty() && token is C) {
             stack.add(token)
-        } else if (stack
+        } else if (stack.isNotEmpty() && stack
                 .last()
                 .isPair(token)
         ) {
             stack.removeLast()
         } else if (token is C) {
             stack.add(token)
-        } else {
-            error("invalid token $token")
         }
+        // do nothing
     }
 
     inline fun <reified T : IHasPair> currentlyIn(): Boolean = stack.last() is T

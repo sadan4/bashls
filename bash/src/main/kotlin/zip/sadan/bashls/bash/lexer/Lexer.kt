@@ -4,16 +4,13 @@ import zip.sadan.bashls.bash.lexer.tokens.*
 import zip.sadan.bashls.bash.lexer.tokens.contexts.ArithmeticContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.SlashContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.VarExpansionContext
-import zip.sadan.bashls.bash.lexer.tokens.redir.*
-import zip.sadan.bashls.bash.lexer.tokens.test.*
-import zip.sadan.bashls.bash.lexer.tokens.here.*
-import zip.sadan.bashls.bash.lexer.tokens.whitespace.*
 import zip.sadan.bashls.util.ScopedGuard
+import zip.sadan.bashls.util.collections.list.shift
 import java.util.ArrayDeque
 
 private fun isWhitespace(c: Char): Boolean = c.isWhitespace() && c !in CharCategory.LINE_SEPARATOR
 
-private data class ScannedHeredocDelimiter(val delimiter: List<Token>, val remainder: Iterable<Token>);
+private data class ScannedHeredocDelimiter(val delimiter: List<Token>, val remainder: Iterable<Token>)
 
 class Lexer(private val source: String) {
     private val b = StringBuilder(source)
@@ -21,7 +18,7 @@ class Lexer(private val source: String) {
     private val done
         get() = b.isEmpty()
 
-    private var currentLoc = 0;
+    private var currentLoc = 0
 
     private val globbingEnabled = false
 
@@ -43,6 +40,7 @@ class Lexer(private val source: String) {
     private val heredocs = HeredocStack()
 
     private val Token.l: List<Token> get() = listOf(this)
+    @Suppress("unused")
     private val List<Token>.l: List<Token> get() = this
 
 
@@ -137,7 +135,7 @@ class Lexer(private val source: String) {
 
                     '<' -> {
                         take()
-                        when (val c = take()) {
+                        when (take()) {
                             '=' -> {
                                 ShlAssignToken(r(3)).l
                             }
@@ -232,7 +230,7 @@ class Lexer(private val source: String) {
                 }
                 val maybeParsedTest by lazy {
                     (if (parseTests && isWhitespace(peekNext())) {
-                        val maybeRet = when (peek()) {
+                        val maybeRet = when (val c = peek()) {
                             'e' -> {
                                 FileExistsTestToken(r(2))
                             }
@@ -261,8 +259,8 @@ class Lexer(private val source: String) {
                                 SocketTestToken(r(2))
                             }
 
-                            'L' -> {
-                                SymbolicLinkTestToken(r(2))
+                            'L', 'h' -> {
+                                SymbolicLinkTestToken(r(2), c)
                             }
 
                             'k' -> {
@@ -759,12 +757,12 @@ class Lexer(private val source: String) {
     private fun scanHereDoc(): List<Token> = _parsingHeredoc.lockWhile {
         val strip: Boolean = takeIf('-')
         val tokRange: Range = if (strip) {
-            r(3);
+            r(3)
         } else {
-            r(2);
+            r(2)
         }
-        val padding = eatWhitespace();
-        val (delimiter, left) = scanHereDocDelimiter();
+        val padding = eatWhitespace()
+        val (delimiter, left) = scanHereDocDelimiter()
         val heredocStart = if (strip) {
             StripTabsHeredocStartToken(tokRange, delimiter, padding)
         } else {
@@ -780,7 +778,7 @@ class Lexer(private val source: String) {
     private fun scanHereDocDelimiter(): ScannedHeredocDelimiter {
         val toProcess = ArrayDeque<Token>(scanToken())
         val ret = mutableListOf<Token>()
-        val first = toProcess.peek();
+        val first = toProcess.peek()
         val done = if (first is IHasPair) {
             {
                 first !in pairs
@@ -789,7 +787,7 @@ class Lexer(private val source: String) {
             {
                 ret.last() is WhitespaceToken
             }
-        };
+        }
         while (!done()) {
             if (toProcess.isEmpty()) {
                 toProcess.addAll(scanToken())
@@ -799,14 +797,11 @@ class Lexer(private val source: String) {
         return ScannedHeredocDelimiter(ret, toProcess)
     }
 
-    private val inHereDoc
-        get() = !(heredocs.isEmpty() && !_parsingHeredoc.locked)
-
     /**
      * Does not consume newlines
      */
     private fun eatWhitespace(): BlankSpaceToken? {
-        val s = takeWhile(::isWhitespace);
+        val s = takeWhile(::isWhitespace)
         return if (s.isNotEmpty()) {
             BlankSpaceToken(r(s.length), s)
         } else {
@@ -844,13 +839,13 @@ class Lexer(private val source: String) {
     private fun peek() = b.first()
     private fun peekNext() = peekAt(1)
     private fun peekAt(idx: Int) = b[idx]
+    @Suppress("SameParameterValue")
     private fun peek(len: Int) = b.substring(0, len)
 
-    private fun take() = b.removeFirst
+    private fun take() = b.shift()
 
     private fun take(n: Int) = b
-        .take(n)
-        .toString()
+        .shift(n)
 
     private inline fun takeWhile(predicate: (Char) -> Boolean): String {
         for (index in 0 until b.length) {
@@ -861,15 +856,9 @@ class Lexer(private val source: String) {
         return take(b.length)
     }
 
+    @Suppress("SameParameterValue")
     private fun takeIf(n: Char): Boolean = if (peek() == n) {
         take()
-        true
-    } else {
-        false
-    }
-
-    private fun takeIf(str: String): Boolean = if (peek(str.length) == str) {
-        take(str.length)
         true
     } else {
         false

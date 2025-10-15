@@ -8,5 +8,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * # var but in uppercase
  * ```
  */
-class DoubleCaratToken(override val pos: Range) : Token{
+class DoubleCaratToken(override val pos: Range) : Token() {
+    override val contents: String = "^^"
 }

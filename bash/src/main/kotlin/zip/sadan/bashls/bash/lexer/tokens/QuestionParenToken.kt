@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * Example: ?(pattern)
  *
  */
-class QuestionParenToken(override val pos: Range) : Token, IHasPair {
+class QuestionParenToken(override val pos: Range) : Token(), IHasPair {
     override fun isPair(other: Token): Boolean = other is RightParenToken
+    override val contents: String = "?("
 }

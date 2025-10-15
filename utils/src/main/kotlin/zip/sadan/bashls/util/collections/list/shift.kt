@@ -21,12 +21,12 @@ fun <T> MutableList<T>.shift(n: Int) = take(n).also {
 
 fun StringBuilder.shift(): Char {
     val ret = this.first()
-    this.deleteAt(0);
-    return ret;
+    this.deleteAt(0)
+    return ret
 }
 
 fun StringBuilder.shift(n: Int): String {
-    val ret = this.substring(0, n);
+    val ret = this.substring(0, n)
     this.delete(0, n)
-    return ret;
+    return ret
 }

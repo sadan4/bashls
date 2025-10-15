@@ -2,6 +2,6 @@ package zip.sadan.bashls.bash.lexer.tokens
 
 import zip.sadan.bashls.bash.lexer.Range
 
-class RedirFdOutputToken(override val pos: Range) : Token {
+class RedirFdOutputToken(override val pos: Range) : Token() {
     override val contents: String = ">&"
 }

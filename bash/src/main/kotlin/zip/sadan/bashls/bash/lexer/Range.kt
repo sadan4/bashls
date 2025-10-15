@@ -1,8 +1,10 @@
 package zip.sadan.bashls.bash.lexer
 
+import kotlinx.serialization.Serializable
 import zip.sadan.bashls.util.collections.list.asPair
 import kotlin.collections.windowed
 
+@Serializable
 data class Range(val start: Int, val length: Int) {
     val end = start + length
 

@@ -1,5 +1,6 @@
 package zip.sadan.bashls.bash.lexer.tokens
 
+import kotlinx.serialization.Serializable
 import zip.sadan.bashls.bash.lexer.Range
 
 /**
@@ -12,5 +13,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * echo $var ${var}
  * ```
  */
-open class LiteralToken(override val pos: Range, override val contents: String) : Token() {
+@Serializable
+class LiteralToken(override val pos: Range, override val contents: String) : Token() {
 }

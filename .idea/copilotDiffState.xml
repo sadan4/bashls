@@ -19,6 +19,51 @@
             </PendingDiffInfo>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/here/HeredocEndToken.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/here/HeredocEndToken.kt" />
+              <option name="originalContent" value="package zip.sadan.bashls.bash.lexer.tokens.here&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;import zip.sadan.bashls.bash.lexer.tokens.Token&#10;import zip.sadan.bashls.bash.lexer.tokens.whitespace.BlankSpaceToken&#10;&#10;class HeredocEndToken(override val pos: Range, override val delimiter: List&lt;Token&gt;) : HeredocToken() {&#10;    override val padding: BlankSpaceToken? = null&#10;    override val tok: String = &quot;&quot;&#10;}" />
+              <option name="updatedContent" value="package zip.sadan.bashls.bash.lexer.tokens.here&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;import zip.sadan.bashls.bash.lexer.tokens.Token&#10;import zip.sadan.bashls.bash.lexer.tokens.whitespace.BlankSpaceToken&#10;&#10;class HeredocEndToken(override val pos: Range, override val delimiter: List&lt;Token&gt;) : HeredocToken() {&#10;    override val padding: BlankSpaceToken? = null&#10;    override val tok: String = &quot;&quot;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/redir/RedirToken.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/redir/RedirToken.kt" />
+              <option name="originalContent" value="package zip.sadan.bashls.bash.lexer.tokens.redir&#10;&#10;import zip.sadan.bashls.bash.lexer.tokens.Token&#10;&#10;interface RedirToken : Token" />
+              <option name="updatedContent" value="package zip.sadan.bashls.bash.lexer.tokens.redir&#10;&#10;import zip.sadan.bashls.bash.lexer.tokens.Token&#10;&#10;abstract class RedirToken : Token()" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/test/StringEqualTestToken.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/test/StringEqualTestToken.kt" />
+              <option name="originalContent" value="package zip.sadan.bashls.bash.lexer.tokens.test&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;&#10;/**&#10; * ```bash&#10; * [ &quot;$a&quot; = &quot;$b&quot; ]&#10; * [ &quot;$a&quot; == &quot;$b&quot; ]&#10; * ```&#10; */&#10;class StringEqualTestToken(override val pos: Range) : TestToken {&#10;}&#10;&#10;" />
+              <option name="updatedContent" value="package zip.sadan.bashls.bash.lexer.tokens.test&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;&#10;/**&#10; * ```bash&#10; * [ &quot;$a&quot; = &quot;$b&quot; ]&#10; * [ &quot;$a&quot; == &quot;$b&quot; ]&#10; * ```&#10; */&#10;class StringEqualTestToken(override val pos: Range) : TestToken() {&#10;    override val contents: String = &quot;=&quot;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/whitespace/NewlineToken.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bash/src/main/kotlin/zip/sadan/bashls/bash/lexer/tokens/whitespace/NewlineToken.kt" />
+              <option name="originalContent" value="package zip.sadan.bashls.bash.lexer.tokens.whitespace&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;&#10;/**&#10; * A single newline&#10; */&#10;class NewlineToken(override val pos: Range) : WhitespaceToken() {&#10;    override val contents: String = &quot;\n&quot;&#10;}" />
+              <option name="updatedContent" value="package zip.sadan.bashls.bash.lexer.tokens.whitespace&#10;&#10;import zip.sadan.bashls.bash.lexer.Range&#10;&#10;/**&#10; * A single newline&#10; */&#10;class NewlineToken(override val pos: Range) : WhitespaceToken() {&#10;    override val contents: String = &quot;\n&quot;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/utils/src/main/kotlin/zip/sadan/bashls/util/collections/list/asPair.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/utils/src/main/kotlin/zip/sadan/bashls/util/collections/list/asPair.kt" />
+              <option name="originalContent" value="package zip.sadan.bashls.util.collections.list&#10;&#10;fun &lt;T&gt; List&lt;T&gt;.asPair(): Pair&lt;T, T&gt; {&#10;    if (size != 2) {&#10;        error(&quot;list must have size to to convert to pair. got size: $size&quot;)&#10;    }&#10;    return first() to last()&#10;}" />
+              <option name="updatedContent" value="package zip.sadan.bashls.util.collections.list&#10;&#10;fun &lt;T&gt; List&lt;T&gt;.asPair(): Pair&lt;T, T&gt; {&#10;    if (size != 2) {&#10;        error(&quot;list must have size to to convert to pair. got size: $size&quot;)&#10;    }&#10;    return first() to last()&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

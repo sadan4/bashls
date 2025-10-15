@@ -3,4 +3,6 @@ package zip.sadan.bashls.bash.lexer.tokens
 import zip.sadan.bashls.bash.lexer.Range
 
 /** += */
-class PlusAssignToken(override val pos: Range) : Token
+class PlusAssignToken(override val pos: Range) : Token() {
+    override val contents: String = "+="
+}

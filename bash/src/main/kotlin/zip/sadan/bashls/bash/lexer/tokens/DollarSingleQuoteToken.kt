@@ -19,6 +19,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # single quote: '
  * ```
  */
-class DollarSingleQuoteToken(override val pos: Range) : Token, IHasPair {
+class DollarSingleQuoteToken(override val pos: Range) : Token(), IHasPair {
+    override val contents: String = "$'"
     override fun isPair(other: Token): Boolean = other is DoubleLeftParenToken
 }

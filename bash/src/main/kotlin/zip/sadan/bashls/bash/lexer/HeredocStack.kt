@@ -1,6 +1,5 @@
 package zip.sadan.bashls.bash.lexer
 
-import zip.sadan.bashls.bash.lexer.tokens.here.HeredocStartToken
+import zip.sadan.bashls.bash.lexer.tokens.HeredocStartToken
 
-class HeredocStack: ArrayList<HeredocStartToken>() {
-}
+class HeredocStack: ArrayList<HeredocStartToken>()

@@ -15,5 +15,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * # 0
  * ```
  */
-class ColonToken(override val pos: Range): Token{
+class ColonToken(override val pos: Range): Token() {
+    override val contents: String = ":"
 }
