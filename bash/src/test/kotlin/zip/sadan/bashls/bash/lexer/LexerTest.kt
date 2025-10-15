@@ -11,7 +11,7 @@ class LexerTest : DescribeSpec({
             expectLexResult("foo").toMatchDisk()
         }
         it("`cmd arg1 arg2`") {
-            expectLexResult("cmd arg1 arg2").toMatchDisk_TODO()
+            expectLexResult("cmd arg1 arg2").toMatchDisk()
         }
     }
 })

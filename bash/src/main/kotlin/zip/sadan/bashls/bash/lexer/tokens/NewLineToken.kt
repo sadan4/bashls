@@ -1,10 +1,12 @@
 package zip.sadan.bashls.bash.lexer.tokens
 
+import kotlinx.serialization.Serializable
 import zip.sadan.bashls.bash.lexer.Range
 
 /**
  * A single newline
  */
-class NewLineToken(override val pos: Range) : WhitespaceToken() {
+@Serializable
+class NewLineToken(override val pos: Range) : Token(), WhitespaceToken {
     override val contents: String = "\n"
 }

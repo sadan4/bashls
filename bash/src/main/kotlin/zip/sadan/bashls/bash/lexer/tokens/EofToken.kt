@@ -1,7 +1,9 @@
 package zip.sadan.bashls.bash.lexer.tokens
 
+import kotlinx.serialization.Serializable
 import zip.sadan.bashls.bash.lexer.Range
 
-class EofToken(override val pos: Range) : WhitespaceToken() {
+@Serializable
+class EofToken(override val pos: Range) : Token(), WhitespaceToken {
     override val contents: String = ""
 }

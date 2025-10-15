@@ -5,6 +5,7 @@ import zip.sadan.bashls.bash.lexer.tokens.contexts.ArithmeticContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.SlashContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.VarExpansionContext
 import zip.sadan.bashls.util.ScopedGuard
+import zip.sadan.bashls.util.collections.list.build
 import zip.sadan.bashls.util.collections.list.shift
 import java.util.ArrayDeque
 
@@ -40,6 +41,7 @@ class Lexer(private val source: String) {
     private val heredocs = HeredocStack()
 
     private val Token.l: List<Token> get() = listOf(this)
+
     @Suppress("unused")
     private val List<Token>.l: List<Token> get() = this
 
@@ -700,9 +702,12 @@ class Lexer(private val source: String) {
             }
 
             else -> {
-                error("All cases should be handled!")
+                error("All cases should be handled! char: `$c` 0x${c.code.toString(16)}")
             }
         }
+            .build {
+                eatWhitespace()?.also(::add)
+            }
         res.forEach(pairs::push)
         return res
     }
@@ -839,6 +844,7 @@ class Lexer(private val source: String) {
     private fun peek() = b.first()
     private fun peekNext() = peekAt(1)
     private fun peekAt(idx: Int) = b[idx]
+
     @Suppress("SameParameterValue")
     private fun peek(len: Int) = b.substring(0, len)
 
