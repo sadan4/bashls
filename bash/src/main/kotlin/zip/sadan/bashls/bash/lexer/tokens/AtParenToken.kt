@@ -8,6 +8,8 @@ import zip.sadan.bashls.bash.lexer.Range
  * Example: @(pattern1|pattern2)
  */
 class AtParenToken(override val pos: Range) : Token() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "@("
 }
 

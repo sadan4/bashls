@@ -9,5 +9,7 @@ import zip.sadan.bashls.bash.lexer.Range
  */
 class QuestionParenToken(override val pos: Range) : Token(), IHasPair {
     override fun isPair(other: Token): Boolean = other is RightParenToken
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "?("
 }

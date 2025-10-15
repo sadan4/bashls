@@ -9,5 +9,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * ```
  */
 class CommaToken(override val pos: Range) : Token() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = ","
 }

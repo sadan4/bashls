@@ -3,6 +3,7 @@ package zip.sadan.bashls.bash.lexer
 import zip.sadan.bashls.bash.lexer.tokens.*
 import zip.sadan.bashls.bash.lexer.tokens.contexts.ArithmeticContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.SlashContext
+import zip.sadan.bashls.bash.lexer.tokens.contexts.TestContext
 import zip.sadan.bashls.bash.lexer.tokens.contexts.VarExpansionContext
 import zip.sadan.bashls.util.ScopedGuard
 import zip.sadan.bashls.util.collections.list.build
@@ -23,13 +24,12 @@ class Lexer(private val source: String) {
 
     private val globbingEnabled = false
 
-    private val lexResult by lazy<List<Token>> {
-        if (done) {
-            listOf(EofToken(r(0)))
-        } else buildList {
+    private val lexResult by lazy {
+        buildList {
             while (!done) {
                 addAll(this@Lexer.scanToken())
             }
+            add(EofToken(r(0)))
         }
     }
 
@@ -228,7 +228,7 @@ class Lexer(private val source: String) {
 
             '-' -> {
                 val parseTests by lazy {
-                    (isWhitespace(peekAt(1)) || isWhitespace(peekAt(2))) && pairs.deepIn<LeftBracketToken>()
+                    (isWhitespace(peekAt(1)) || isWhitespace(peekAt(2))) && pairs.deepIn<TestContext>()
                 }
                 val maybeParsedTest by lazy {
                     (if (parseTests && isWhitespace(peekNext())) {
@@ -391,7 +391,6 @@ class Lexer(private val source: String) {
                         MinusToken(r(1))
                     }
                 }.l
-                TODO()
             }
 
             '`' -> {

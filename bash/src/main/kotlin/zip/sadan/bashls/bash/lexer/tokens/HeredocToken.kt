@@ -7,5 +7,6 @@ sealed class HeredocToken() : Token() {
     abstract val delimiter: List<Token>
     abstract val padding: BlankSpaceToken?
     protected abstract val tok: String
-    override val contents: String = "$tok${printIf(padding)}${printList(delimiter)}"
+    override var contents: String = "$tok${printIf(padding)}${printList(delimiter)}"
+        protected set
 }

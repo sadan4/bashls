@@ -1,5 +1,6 @@
 package zip.sadan.bashls.bash.lexer.tokens
 
+import kotlinx.serialization.Serializable
 import zip.sadan.bashls.bash.lexer.Range
 
 /**
@@ -8,9 +9,11 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -h /symlink ]
  * ```
  */
-class SymbolicLinkTestToken(override val pos: Range, flag: Char) : TestToken() {
-    init {
+@Serializable
+class SymbolicLinkTestToken private constructor(override val pos: Range) : TestToken() {
+    constructor(pos: Range, flag: Char) : this(pos) {
         assert(flag == 'L' || flag == 'h')
+        contents = "-$flag"
     }
-    override val contents: String = "-$flag"
+    override lateinit var contents: String
 }

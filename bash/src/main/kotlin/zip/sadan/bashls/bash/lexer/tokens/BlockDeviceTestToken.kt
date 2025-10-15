@@ -8,5 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * ```
  */
 class BlockDeviceTestToken(override val pos: Range) : TestToken() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "-b"
 }

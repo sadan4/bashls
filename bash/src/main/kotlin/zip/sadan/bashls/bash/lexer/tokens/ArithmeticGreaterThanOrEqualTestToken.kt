@@ -8,5 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * ```
  */
 class ArithmeticGreaterThanOrEqualTestToken(override val pos: Range) : TestToken() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "-ge"
 }

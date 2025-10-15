@@ -5,5 +5,7 @@ import zip.sadan.bashls.bash.lexer.Range
 /** ` */
 class BackQuoteToken(override val pos: Range) : Token(), IHasPair {
     override fun isPair(other: Token): Boolean = other is BackQuoteToken
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "`"
 }

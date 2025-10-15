@@ -4,5 +4,7 @@ import zip.sadan.bashls.bash.lexer.Range
 
 /** # ${var#removeShortestPrefix} */
 class HashToken(override val pos: Range) : Token() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "#"
 }

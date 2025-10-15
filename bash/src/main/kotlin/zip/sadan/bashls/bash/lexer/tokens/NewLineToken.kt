@@ -8,5 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  */
 @Serializable
 class NewLineToken(override val pos: Range) : Token(), WhitespaceToken {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = "\n"
 }

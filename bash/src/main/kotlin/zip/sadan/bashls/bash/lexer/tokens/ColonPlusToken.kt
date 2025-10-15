@@ -4,5 +4,7 @@ import zip.sadan.bashls.bash.lexer.Range
 
 /** :+ ${var:+word} */
 class ColonPlusToken(override val pos: Range) : Token() {
+    @kotlinx.serialization.ExperimentalSerializationApi
+    @kotlinx.serialization.EncodeDefault
     override val contents: String = ":+"
 }
