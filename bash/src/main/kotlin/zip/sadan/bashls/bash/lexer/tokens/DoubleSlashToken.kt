@@ -9,5 +9,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * # b_n_n_
  * ```
  */
-class DoubleSlashToken(override val pos: Range) : Token {
+class DoubleSlashToken(override val pos: Range) : Token() {
+    override val contents: String = "//"
 }

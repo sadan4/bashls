@@ -1,0 +1,11 @@
+package zip.sadan.bashls.bash.lexer.tokens.here
+
+import zip.sadan.bashls.bash.lexer.tokens.Token
+import zip.sadan.bashls.bash.lexer.tokens.whitespace.BlankSpaceToken
+
+sealed class HeredocToken() : Token() {
+    abstract val delimiter: List<Token>
+    abstract val padding: BlankSpaceToken?
+    protected abstract val tok: String
+    override val contents: String = "$tok${printIf(padding)}${printList(delimiter)}"
+}

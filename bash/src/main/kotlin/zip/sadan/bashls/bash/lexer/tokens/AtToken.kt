@@ -20,5 +20,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * done
  * ```
  */
-class AtToken(override val pos: Range) : Token {
+class AtToken(override val pos: Range) : Token() {
+    override val contents: String = "@"
 }

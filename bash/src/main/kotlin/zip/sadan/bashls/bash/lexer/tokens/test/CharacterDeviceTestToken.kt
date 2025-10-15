@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -c /dev/tty ]
  * ```
  */
-class CharacterDeviceTestToken(override val pos: Range) : TestToken {
+class CharacterDeviceTestToken(override val pos: Range) : TestToken() {
+    override val contents: String = "-c"
 }
 

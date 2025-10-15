@@ -12,5 +12,5 @@ import zip.sadan.bashls.bash.lexer.Range
  * echo $var ${var}
  * ```
  */
-open class LiteralToken(override val pos: Range, override val contents: String) : Token {
+open class LiteralToken(override val pos: Range, override val contents: String) : Token() {
 }

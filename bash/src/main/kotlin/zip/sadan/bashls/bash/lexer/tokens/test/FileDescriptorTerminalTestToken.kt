@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -t 1 ]
  * ```
  */
-class FileDescriptorTerminalTestToken(override val pos: Range) : TestToken {
+class FileDescriptorTerminalTestToken(override val pos: Range) : TestToken() {
+    override val contents: String = "-t"
 }
 

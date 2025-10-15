@@ -9,7 +9,7 @@ class PairedStack : Collection<C> {
     override val size: Int
         get() = stack.size
 
-    @PublishedApi()
+    @PublishedApi
     internal val stack = mutableListOf<C>()
 
     fun push(token: Token) {

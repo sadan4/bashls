@@ -8,5 +8,6 @@ import zip.sadan.bashls.bash.lexer.Range
  * echo ${word,}    # Output: hELLO
  * ```
  */
-class CommaToken(override val pos: Range) : Token{
+class CommaToken(override val pos: Range) : Token() {
+    override val contents: String = ","
 }

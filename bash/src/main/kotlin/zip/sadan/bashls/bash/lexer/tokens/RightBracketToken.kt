@@ -3,6 +3,6 @@ package zip.sadan.bashls.bash.lexer.tokens
 import zip.sadan.bashls.bash.lexer.Range
 
 /** ] */
-class RightBracketToken(override val pos: Range) : Token, IHasPair {
-    override fun isPair(other: Token): Boolean = error("")
+class RightBracketToken(override val pos: Range) : Token() {
+    override val contents: String = "]"
 }
