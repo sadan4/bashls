@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * echo ${word,,}   # Output: hello
  * ```
  */
+@kotlinx.serialization.Serializable
 class DoubleCommaToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

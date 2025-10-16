@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # var but in uppercase
  * ```
  */
+@kotlinx.serialization.Serializable
 class DoubleCaratToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

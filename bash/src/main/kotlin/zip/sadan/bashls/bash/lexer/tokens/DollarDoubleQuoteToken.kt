@@ -6,6 +6,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * `$"`
  * Localized text via gettext
  */
+@kotlinx.serialization.Serializable
 class DollarDoubleQuoteToken(override val pos: Range) : Token(), IHasPair {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

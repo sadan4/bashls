@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -k /file ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class StickyBitTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

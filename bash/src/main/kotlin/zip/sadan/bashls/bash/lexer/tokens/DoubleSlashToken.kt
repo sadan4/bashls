@@ -9,6 +9,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # b_n_n_
  * ```
  */
+@kotlinx.serialization.Serializable
 class DoubleSlashToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

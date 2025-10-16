@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -G /file ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class FileOwnedByEffectiveGIDTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

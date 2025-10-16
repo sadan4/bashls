@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -N /file ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class FileModifiedSinceReadTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

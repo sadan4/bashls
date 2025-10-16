@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -p /path/to/pipe ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class NamedPipeTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -S /path/to/socket ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class SocketTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ file1 -ef file2 ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class FileSameTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

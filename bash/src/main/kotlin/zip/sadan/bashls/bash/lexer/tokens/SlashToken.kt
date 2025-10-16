@@ -19,6 +19,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # b_nana
  * ```
  */
+@kotlinx.serialization.Serializable
 class SlashToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

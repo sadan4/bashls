@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -c /dev/tty ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class CharacterDeviceTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

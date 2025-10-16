@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ "$a" != "$b" ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class StringNotEqualTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ file1 -ot file2 ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class FileOlderThanTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

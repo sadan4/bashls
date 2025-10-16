@@ -19,7 +19,7 @@ class LexerTest : DescribeSpec({
             expectLexResult("ls -alh").toMatchDisk()
         }
         it("`echo \"foo bar\"`") {
-            expectLexResult("cmd \"foo bar\"").toMatchDisk_TODO()
+            expectLexResult("cmd \"foo bar\"").toMatchDisk()
         }
     }
 })

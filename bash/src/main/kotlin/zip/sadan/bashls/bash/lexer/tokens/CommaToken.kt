@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * echo ${word,}    # Output: hELLO
  * ```
  */
+@kotlinx.serialization.Serializable
 class CommaToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

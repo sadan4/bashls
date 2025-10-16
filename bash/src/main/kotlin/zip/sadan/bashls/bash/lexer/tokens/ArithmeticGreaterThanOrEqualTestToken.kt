@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ $a -ge $b ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class ArithmeticGreaterThanOrEqualTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

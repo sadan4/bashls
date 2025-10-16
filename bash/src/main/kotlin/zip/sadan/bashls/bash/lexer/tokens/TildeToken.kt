@@ -11,6 +11,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # /root
  * ```
  */
+@kotlinx.serialization.Serializable
 class TildeToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -15,6 +15,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # 0
  * ```
  */
+@kotlinx.serialization.Serializable
 class ColonToken(override val pos: Range): Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

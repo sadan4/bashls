@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * Example: ?(pattern)
  *
  */
+@kotlinx.serialization.Serializable
 class QuestionParenToken(override val pos: Range) : Token(), IHasPair {
     override fun isPair(other: Token): Boolean = other is RightParenToken
     @kotlinx.serialization.ExperimentalSerializationApi

@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -d /directory ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class DirectoryTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

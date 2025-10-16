@@ -49,6 +49,73 @@
     "contents": ""
   }
 ]
+╔═ `echo "foo bar"` ═╗
+[
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.LiteralToken",
+    "pos": {
+      "start": 0,
+      "length": 3
+    },
+    "contents": "cmd"
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.BlankSpaceToken",
+    "pos": {
+      "start": 3,
+      "length": 1
+    },
+    "contents": " "
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.DoubleQuoteToken",
+    "pos": {
+      "start": 4,
+      "length": 1
+    },
+    "contents": "\""
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.LiteralToken",
+    "pos": {
+      "start": 5,
+      "length": 3
+    },
+    "contents": "foo"
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.BlankSpaceToken",
+    "pos": {
+      "start": 8,
+      "length": 1
+    },
+    "contents": " "
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.LiteralToken",
+    "pos": {
+      "start": 9,
+      "length": 3
+    },
+    "contents": "bar"
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.DoubleQuoteToken",
+    "pos": {
+      "start": 12,
+      "length": 1
+    },
+    "contents": "\""
+  },
+  {
+    "type": "zip.sadan.bashls.bash.lexer.tokens.EofToken",
+    "pos": {
+      "start": 13,
+      "length": 0
+    },
+    "contents": ""
+  }
+]
 ╔═ `foo` ═╗
 [
   {

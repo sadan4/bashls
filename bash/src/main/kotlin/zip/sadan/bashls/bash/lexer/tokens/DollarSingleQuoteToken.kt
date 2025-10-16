@@ -19,6 +19,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * # single quote: '
  * ```
  */
+@kotlinx.serialization.Serializable
 class DollarSingleQuoteToken(override val pos: Range) : Token(), IHasPair {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

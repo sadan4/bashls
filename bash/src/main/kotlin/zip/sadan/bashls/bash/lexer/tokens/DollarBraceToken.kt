@@ -4,6 +4,7 @@ import zip.sadan.bashls.bash.lexer.Range
 import zip.sadan.bashls.bash.lexer.tokens.contexts.VarExpansionContext
 
 /** ${ */
+@kotlinx.serialization.Serializable
 class DollarBraceToken(override val pos: Range) : Token(), IHasPair, VarExpansionContext {
     override fun isPair(other: Token): Boolean = other is RightBraceToken
     @kotlinx.serialization.ExperimentalSerializationApi

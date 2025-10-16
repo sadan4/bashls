@@ -20,6 +20,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * done
  * ```
  */
+@kotlinx.serialization.Serializable
 class AtToken(override val pos: Range) : Token() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -8,6 +8,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [[ "$string" =~ pattern ]]
  * ```
  */
+@kotlinx.serialization.Serializable
 class RegexMatchTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

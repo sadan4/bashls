@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -n "$string" ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class StringNonZeroLengthTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

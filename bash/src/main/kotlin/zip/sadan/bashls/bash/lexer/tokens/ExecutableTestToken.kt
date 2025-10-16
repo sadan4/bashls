@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -x /file ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class ExecutableTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

@@ -7,6 +7,7 @@ import zip.sadan.bashls.bash.lexer.Range
  * [ -b /dev/sda ]
  * ```
  */
+@kotlinx.serialization.Serializable
 class BlockDeviceTestToken(override val pos: Range) : TestToken() {
     @kotlinx.serialization.ExperimentalSerializationApi
     @kotlinx.serialization.EncodeDefault

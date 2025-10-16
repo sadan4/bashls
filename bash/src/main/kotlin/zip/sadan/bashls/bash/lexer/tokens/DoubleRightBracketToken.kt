@@ -5,6 +5,7 @@ import zip.sadan.bashls.bash.lexer.Range
 /**
  * ]]
  */
+@kotlinx.serialization.Serializable
 class DoubleRightBracketToken(override val pos: Range) : Token(), IHasPair {
     override fun isPair(other: Token): Boolean = error("")
     @kotlinx.serialization.ExperimentalSerializationApi
