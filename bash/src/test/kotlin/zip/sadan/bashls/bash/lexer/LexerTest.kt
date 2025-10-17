@@ -22,4 +22,21 @@ class LexerTest : DescribeSpec({
             expectLexResult("cmd \"foo bar\"").toMatchDisk()
         }
     }
+
+    describe("linebreaks") {
+        it("handles more than one line") {
+            val code = """
+                foo
+                bar
+            """.trimIndent()
+            expectLexResult(code).toMatchDisk()
+        }
+        it("handles more than one line 2") {
+            val code = """
+                foo "quoted"
+                bar "quoted" guh
+            """.trimIndent()
+            expectLexResult(code).toMatchDisk()
+        }
+    }
 })
